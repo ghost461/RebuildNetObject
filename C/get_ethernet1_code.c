@@ -139,4 +139,5 @@ int main()
 	printf("----------------*****----------------\n");
 	//关闭Libpcap操作
 	pcap_close(pcap_handle);
+	return 0;
 }
