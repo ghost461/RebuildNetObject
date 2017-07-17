@@ -68,4 +68,29 @@ void ethernet_protocol_packet_callback(u_char *argument,const struct pcap_pkthdr
 	printf("********************************************\n");
 	packet_number++;
 }
-int main(){}
+int main()
+{
+	//Libpcap句柄
+	pcap_t *pcap_handle;
+	//错误信息
+	char error_content[PCAP_ERRBUF_SIZE];
+	//网络接口
+	char *net_interface;
+	//过滤规则
+	struct bpf_program bpf_filter;
+	//过滤规则字符串，此时表示本程序只是捕获IP协议的数据包，同样也是以太网数据包
+	char bpf_filter_string[] = "ip";
+	//网络掩码
+	bpf_u_int32 net_mask;
+	//网络地址
+	bpf_u_int32 net_ip;
+	//获得网络接口
+	net_interface = pcap_lookupdev(error_content);
+	//获得网络地址和网络掩码
+	//参数列表：网络接口、网络地址、网络掩码、错误信息
+	pcap_lookupnet(net_interface , &net_ip , &net_mask , error_content);
+	//打开网络接口
+	//参数列表：网络接口、数据包大小、混杂模式、等待时间
+	pcap_handle = pcap_open_live(net_interface , BUFSIZ , 1 , 0 , error_content);
+	return 0;
+}
