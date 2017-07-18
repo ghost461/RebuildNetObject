@@ -5,8 +5,6 @@
 #include<arpa/inet.h>
 #include"pcap.h"
 
-// ntohs用来将参数指定的16 位netshort 转换成主机字符顺序.
-
 //以太网协议的数据结构体
 struct ether_header
 {
