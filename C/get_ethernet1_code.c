@@ -4,8 +4,8 @@
 //Libpcap头文件
 #include<stdio.h>
 #include<arpa/inet.h>
-#include"pcap.h"
 #include<time.h>
+#include"pcap.h"
 
 //以太网协议的数据结构
 struct ether_header
