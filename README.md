@@ -6,5 +6,5 @@
 - 需要PCAP环境
 - 创建于2017_07_16
 - getmask_code.c已完成
-- get_ethetnet1_code.c已完成
-- getmask_code2_code.c已完成
+- get_ethernet1_code.c已完成
+- get_ethernet2_code_.c已完成
