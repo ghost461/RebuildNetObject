@@ -35,7 +35,7 @@ struct arp_header
 	//硬件地址长度
 	u_int8_t arp_hardware_length;
 	//协议地址长度
-	u_int16_t arp_protocol_length;
+	u_int8_t arp_protocol_length;
 	//操作类型
 	u_int16_t arp_operation_code;
 	//源以太网地址
@@ -49,7 +49,7 @@ struct arp_header
 };
 
 //实现ARP协议分析的函数定义
-void arp_protocol_packet_callback(u_char *argument , const struct pcap_pkthdr *packet_header , const u_char *packet_content)
+void arp_protocol_packet_callback(u_char *argument, const struct pcap_pkthdr *packet_header, const u_char *packet_content)
 {
 	//ARP协议变量
 	struct arp_header *arp_protocol;
@@ -72,7 +72,7 @@ void arp_protocol_packet_callback(u_char *argument , const struct pcap_pkthdr *p
 
 	printf("---------    ARP Protocol (Network Layer)    ---------\n");
 	//获得ARP协议数据，注意这里要跳过以太网数据部分，它的长度刚好是14，所以在这里加上14，是指针跳过14个字节
-	arp_protocol = (struct arp_header*)(packet_content +14);
+	arp_protocol = (struct arp_header*)(packet_content + 14);
 	//获得硬件类型
 	hardware_type = ntohs(arp_protocol->arp_hardware_type);
 	//获得协议类型
@@ -110,7 +110,7 @@ void arp_protocol_packet_callback(u_char *argument , const struct pcap_pkthdr *p
 	//获取源以太网地址
 	printf("Ethernet Source Address is: \n");
 	mac_string = arp_protocol->arp_source_ethernet_address;
-	printf("%02x:%02x:%02x:%02x:%02x:%02x\n", *mac_string , *(mac_string + 1) , *(mac_string + 2) , *(mac_string + 3) , *(mac_string + 4) , *(mac_string + 5));
+	printf("%02x:%02x:%02x:%02x:%02x:%02x\n", *mac_string, *(mac_string + 1), *(mac_string + 2), *(mac_string + 3), *(mac_string + 4), *(mac_string + 5));
 	/*
 	 * 原型：extern void *memcpy(void *dest, void *src, unsigned int count);
 	 * 用法：#include<string.h>
@@ -126,7 +126,7 @@ void arp_protocol_packet_callback(u_char *argument , const struct pcap_pkthdr *p
 	mac_string = arp_protocol->arp_destination_ethernet_address;
 	printf("%02x:%02x:%02x:%02x:%02x:%02x\n", *mac_string, *(mac_string + 1), *(mac_string + 2), *(mac_string + 3), *(mac_string + 4), *(mac_string + 5));
 	//获取目的IP地址
-	memcpy((void*)&destination_ip_address, (void*)&arp_protocol->arp_destination_ip_address, sizeof(struct in_addr));
+	memcpy((void*)&destination_ip_address, (void*)arp_protocol->arp_destination_ip_address, sizeof(struct in_addr));
 	printf("Destination IP Address: %s\n", inet_ntoa(destination_ip_address));
 }
 //回调函数，实现以太网协议分析
