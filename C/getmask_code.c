@@ -50,6 +50,6 @@ int main()
 	net_mask_address.s_addr = net_mask;
 	net_mask_string = inet_ntoa(net_mask_address);
 	//输出掩码地址
-	printf("Network IP Address is: %s\n", net_mask_string);
+	printf("Network Mask Address is: %s\n", net_mask_string);
 	return 0;
 }
