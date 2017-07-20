@@ -184,7 +184,7 @@ void ethernet_protocol_packet_callback(u_char *argument, const struct pcap_pkthd
 	//获得以太网协议数据
 	static int packet_number = 1;
 	printf("******************************************************\n");
-	printf("The %d IP packet is captured. \n", packet_number);
+	printf("The %d ICMP packet is captured. \n", packet_number);
 	printf("----------- Ethernet Protocol (Link Layer) -----------\n");
 	ethernet_protocol = (struct ether_header*)packet_content;
 	//获得以太网类型
