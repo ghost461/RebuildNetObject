@@ -5,6 +5,7 @@
 - C++部分根据C重构移植
 - 需要PCAP环境
 - 创建于2017_07_16
+###以下程序均使用wireshark检验过
 - getmask_code.c已完成
 - pcap_next_code.c已完成
 - pcap_loop_code.c已完成
@@ -12,3 +13,4 @@
 - get_ethernet2_code_.c已完成
 - get_arp_code_.c已完成
 - get_ip_code_.c已完成
+- get_icmp_code_.c已完成
