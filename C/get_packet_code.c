@@ -244,7 +244,7 @@ void udp_protocol_packet_callback(u_char *argument, const struct pcap_pkthdr *pa
 	destination_port = ntohs(udp_protocol->udp_destination_port);
 	//获得长度
 	length = ntohs(udp_protocol->udp_length);
-	printf("--------   TCP  Protocol (Transport Layer)   --------\n");
+	printf("--------   UDP  Protocol (Transport Layer)   --------\n");
 	//输出源端口号
 	printf("Source Port: %d\n", source_port);
 	//输出目的端口号
@@ -479,7 +479,7 @@ void ethernet_protocol_packet_callback(u_char *argument, const struct pcap_pkthd
 	//获得以太网协议数据
 	static int packet_number = 1;
 	printf("******************************************************\n");
-	printf("The %d TCP packet is captured. \n", packet_number);
+	printf("The %d packet is captured. \n", packet_number);
 	printf("----------- Ethernet Protocol (Link Layer) -----------\n");
 	ethernet_protocol = (struct ether_header*)packet_content;
 	//获得以太网类型
@@ -533,7 +533,7 @@ int main()
 	//过滤规则
 	struct bpf_program bpf_filter;
 	//过滤规则字符串，这里表示本程序只是捕获所有ARP协议的网络数据包
-	char bpf_filter_string[] = "tcp";
+	char bpf_filter_string[] = "";
 	//网络掩码
 	bpf_u_int32 net_mask;
 	//网络地址
