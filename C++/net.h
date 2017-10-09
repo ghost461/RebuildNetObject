@@ -4,6 +4,7 @@
 class net_ether
 {
 	public:
+		friend class net_ip;
 		friend class net_arp;
 		//以太网协议格式
 		struct ether_header;
