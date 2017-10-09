@@ -532,7 +532,7 @@ int main()
 	char *net_interface;
 	//过滤规则
 	struct bpf_program bpf_filter;
-	//过滤规则字符串，这里表示本程序只是捕获所有ARP协议的网络数据包
+	//过滤规则字符串，这里表示本程序是捕获所有协议的网络数据包
 	char bpf_filter_string[] = "";
 	//网络掩码
 	bpf_u_int32 net_mask;
