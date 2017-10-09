@@ -4,25 +4,25 @@ test : $(all)
 	clang++ -o test $(all) -l pcap
 
 main.o : main.cpp net.h
-	clang++ -c main.cpp -l pcap
+	clang++ -c main.cpp 
 
 net_ether.o : net_ether.cpp net.h
-	clang++ -c net_ether.cpp -l pcap
+	clang++ -c net_ether.cpp 
 
 net_ip.o : net_ip.cpp net.h
-	clang++ -c net_ip.cpp -l pcap
+	clang++ -c net_ip.cpp 
 
 net_arp.o : net_arp.cpp net.h
-	clang++ -c net_arp.cpp -l pcap
+	clang++ -c net_arp.cpp 
 
 net_icmp.o : net_icmp.cpp net.h
-	clang++ -c net_icmp.cpp -l pcap
+	clang++ -c net_icmp.cpp 
 
 net_udp.o : net_icmp.cpp net.h
-	clang++ -c net_udp.cpp -l pcap
+	clang++ -c net_udp.cpp 
 
 net_tcp.o : net_tcp.cpp net.h
-	clang++ -c net_tcp.cpp -l pcap
+	clang++ -c net_tcp.cpp 
 
-clear :
+clean :
 	rm $(all)
