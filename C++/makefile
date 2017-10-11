@@ -1,4 +1,4 @@
-all = main.o net_ether.o net_ip.o net_arp.o net_icmp.o net_udp.o net_tcp.o
+all = main.o net_ether.o net_ip.o net_arp.o net_icmp.o net_udp.o net_tcp.o net_main.o
 
 test : $(all)
 	clang++ -o test $(all) -l pcap
@@ -23,6 +23,8 @@ net_udp.o : net_icmp.cpp net.h
 
 net_tcp.o : net_tcp.cpp net.h
 	clang++ -c net_tcp.cpp 
+net_main.o : net_main.cpp net.h
+	clang++ -c net_main.cpp
 
 clean :
 	rm $(all)

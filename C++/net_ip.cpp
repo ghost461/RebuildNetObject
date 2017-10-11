@@ -98,12 +98,12 @@ void net_ip::ip_protocol_packet_callback(u_char *argument, const struct pcap_pkt
 		case 17:
 			//调用分析UDP协议的函数，注意参数的传递
 			net_udp UDP;
-			UDP.udp_protocol_packet_callback(argument, packet_header, packet_content);
+			UDP.udp_protocol_packet_callback(argument, packet_header, packet_content);break;
 		//上层协议是ICMP协议
 		case 1:
 			//调用ICMP协议的函数，注意参数的传递 
 			net_icmp ICMP;
-			ICMP.icmp_protocol_packet_callback(argument, packet_header, packet_content);
+			ICMP.icmp_protocol_packet_callback(argument, packet_header, packet_content);break;
 		default:
 			break;
 	}

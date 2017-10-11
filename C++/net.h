@@ -1,5 +1,7 @@
 #include<arpa/inet.h>
 #include"pcap.h"
+#include<string>
+using namespace std;
 
 class net_ether
 {
@@ -59,4 +61,29 @@ class net_tcp
 		struct tcp_header;
 		//实现TCP协议分析的函数定义
 		void tcp_protocol_packet_callback(u_char *argument, const struct pcap_pkthdr *pcaket_header, const u_char *packet_content);
+};
+
+class net_main
+{
+	 private:
+		//Libpcap句柄
+		pcap_t *pcap_handle;
+		//错误信息
+		char error_content[PCAP_ERRBUF_SIZE];
+		//网络接口
+		char *net_interface;
+		//过滤规则
+		struct bpf_program bpf_filter;
+		//过滤规则字符串，这里表示本程序是捕获所有协议的网络数据包
+		string bpf_filter_string;
+		//网络掩码
+		bpf_u_int32 net_mask;
+		//网络地址
+		bpf_u_int32 net_ip;
+		//捕获数据包的个数
+		int packet_number;
+	 public:
+		//起始函数
+		//参数列表：过滤字符串，捕获数据包的个数（均可缺省）
+		int start(string BpfFilterString, int PacketNumber);
 };
