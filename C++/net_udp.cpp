@@ -32,7 +32,8 @@ void net_udp::udp_protocol_packet_callback(u_char *argument, const struct pcap_p
 	destination_port = ntohs(udp_protocol->udp_destination_port);
 	//获得长度
 	length = ntohs(udp_protocol->udp_length);
-	printf("--------   UDP  Protocol (Transport Layer)    --------\n");
+	//printf("--------   UDP  Protocol (Transport Layer)    --------\n");
+	printf("--------   \033[34mUDP  Protocol (Transport Layer)\033[0m    --------\n");
 	//输出源端口号
 	printf("Source Port: %d\n", source_port);
 	//输出目的端口号

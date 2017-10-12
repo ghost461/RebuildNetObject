@@ -75,7 +75,8 @@ void net_tcp::tcp_protocol_packet_callback(u_char *argument, const struct pcap_p
 	flags = tcp_protocol->tcp_flags;
 	//获得校验和
 	checksum = ntohs(tcp_protocol->tcp_checksum);
-	printf("--------   TCP  Protocol (Transport Layer)   --------\n");
+	//printf("--------   TCP  Protocol (Transport Layer)   --------\n");
+	printf("--------   \033[34mTCP  Protocol (Transport Layer)\033[0m   --------\n");
 	//输出源端口号
 	printf("Source Port: %d\n", source_port);
 	//输出目的端口号

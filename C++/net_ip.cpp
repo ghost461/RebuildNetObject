@@ -54,18 +54,27 @@ void net_ip::ip_protocol_packet_callback(u_char *argument, const struct pcap_pkt
 	//获得偏移量
 	offset = ntohs(ip_protocol->ip_off);
 	//获得总长度
-	printf("---------    IP  Protocol (Network Layer)    ---------\n");
-	printf("IP version: %d\n", ip_protocol->ip_version);
-	printf("Header length: %d\n", header_length);
-	printf("TOS: %d\n", tos);
-	printf("Total length: %d\n", ntohs(ip_protocol->ip_length));
+	//printf("---------    IP  Protocol (Network Layer)    ---------\n");
+	printf("---------    \033[34mIP  Protocol (Network Layer)\033[0m    ---------\n");
+	//printf("IP version: %d\n", ip_protocol->ip_version);
+	printf("\033[32mIP version: \033[0m%d\n", ip_protocol->ip_version);
+	//printf("Header length: %d\n", header_length);
+	printf("\033[32mHeader length: \033[0m%d\n", header_length);
+	//printf("TOS: %d\n", tos);
+	printf("\033[32mTOS: \033[0m%d\n", tos);
+	//printf("Total length: %d\n", ntohs(ip_protocol->ip_length));
+	printf("\033[32mTotal length: \033[0m%d\n", ntohs(ip_protocol->ip_length));
 	//获得标识
-	printf("Identification: %d\n", ntohs(ip_protocol->ip_id));
+	//printf("Identification: %d\n", ntohs(ip_protocol->ip_id));
+	printf("\033[32mIdentification: \033[0m%d\n", ntohs(ip_protocol->ip_id));
 	//获得TTL
-	printf("Offset: %d\n", (offset &0x1fff) *8);
-	printf("TTL: %d\n", ip_protocol->ip_ttl);
+	//printf("Offset: %d\n", (offset &0x1fff) *8);
+	printf("\033[32mOffset: \033[0m%d\n", (offset &0x1fff) *8);
+	//printf("TTL: %d\n", ip_protocol->ip_ttl);
+	printf("\033[32mTTL: \033[0m%d\n", ip_protocol->ip_ttl);
 	//获得协议类型
-	printf("Protocol: %d\n", ip_protocol->ip_protocol);
+	//printf("Protocol: %d\n", ip_protocol->ip_protocol);
+	printf("\033[32mProtocol: \033[0m%d\n", ip_protocol->ip_protocol);
 	//判断协议类型的值
 	switch(ip_protocol->ip_protocol)
 	{
@@ -81,11 +90,14 @@ void net_ip::ip_protocol_packet_callback(u_char *argument, const struct pcap_pkt
 		default:
 			break;
 	}
+	//printf("Header checksum: %d\n", checksum);
+	printf("\033[32mHeader checksum: \033[0m%d\n", checksum);
 	//获得源IP地址
-	printf("Header checksum: %d\n", checksum);
-	printf("Source address: %s\n", inet_ntoa(ip_protocol->ip_source_address));
+	//printf("Source address: %s\n", inet_ntoa(ip_protocol->ip_source_address));
+	printf("\033[32mSource address: \033[0m%s\n", inet_ntoa(ip_protocol->ip_source_address));
 	//获取目的IP地址
-	printf("Destination address: %s\n", inet_ntoa(ip_protocol->ip_destination_address));
+	//printf("Destination address: %s\n", inet_ntoa(ip_protocol->ip_destination_address));
+	printf("\033[32mDestination address: \033[0m%s\n", inet_ntoa(ip_protocol->ip_destination_address));
 	//如果上层协议为TCP协议，就调用分析TCP协议的函数，注意此时的参数传递
 	switch(ip_protocol->ip_protocol)
 	{

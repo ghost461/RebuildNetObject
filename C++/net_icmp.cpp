@@ -23,7 +23,7 @@ void net_icmp::icmp_protocol_packet_callback(u_char *argument, const struct pcap
 	//获取ICMP协议数据内容，跳过以太网和IP部分
 	icmp_protocol = (struct icmp_header*)(packet_content +14 +20);
 	//获得ICMP类型
-	printf("--------   ICMP Protocol (Transport Layer)   --------\n");
+	printf("--------   \033[34mICMP Protocol (Transport Layer)\033[0m   --------\n");
 	//根据ICMP类型进行判断
 	switch(icmp_protocol->icmp_type)
 	{

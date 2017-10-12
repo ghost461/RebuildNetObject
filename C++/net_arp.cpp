@@ -45,7 +45,8 @@ void net_arp::arp_protocol_packet_callback(u_char *argument, const struct pcap_p
 	//协议地址长度
 	u_char protocol_length;
 
-	printf("---------    ARP Protocol (Network Layer)    ---------\n");
+	//printf("---------    ARP Protocol (Network Layer)    ---------\n");
+	printf("---------    \033[34mARP Protocol (Network Layer)\033[0m    ---------\n");
 	//获得ARP协议数据，注意这里要跳过以太网数据部分，它的长度刚好是14，所以在这里加上14，是指针跳过14个字节
 	arp_protocol = (struct arp_header*)(packet_content + 14);
 	//获得硬件类型
@@ -93,13 +94,13 @@ void net_arp::arp_protocol_packet_callback(u_char *argument, const struct pcap_p
 	 * 说明：src和dest所指内存区域不能重叠，函数返回指向dest的指针。
 	 */
 	memcpy((void*)&source_ip_address, (void*)arp_protocol->arp_source_ip_address, sizeof(struct in_addr));
-	//获得源IP地址将一个IP转换成一个互联网标准点分格式的字符串
-	//char FAR * inet_ntoa(struct in_addr in);头文件：arpa/inet.h
-	printf("Source IP Address: %s\n", inet_ntoa(source_ip_address));
 	//获得目的以太网地址
 	printf("Ethernet Destination Address is: \n");
 	mac_string = arp_protocol->arp_destination_ethernet_address;
 	printf("%02x:%02x:%02x:%02x:%02x:%02x\n", *mac_string, *(mac_string + 1), *(mac_string + 2), *(mac_string + 3), *(mac_string + 4), *(mac_string + 5));
+	//获得源IP地址将一个IP转换成一个互联网标准点分格式的字符串
+	//char FAR * inet_ntoa(struct in_addr in);头文件：arpa/inet.h
+	printf("Source IP Address: %s\n", inet_ntoa(source_ip_address));
 	//获取目的IP地址
 	memcpy((void*)&destination_ip_address, (void*)arp_protocol->arp_destination_ip_address, sizeof(struct in_addr));
 	printf("Destination IP Address: %s\n", inet_ntoa(destination_ip_address));
