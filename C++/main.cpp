@@ -59,10 +59,12 @@ int main(int argc, char* argv[])
 			}
 			else if(tmp == "-h" || tmp == "--help")
 			{
-				printf("-n \n\t Specify the quantity of the packet.");
-				printf("-p \n\t Specify the protocol of the packet.");
-				printf("-h --help \n\t Show this page. Show the help pages.");
-				printf("-v \n\t Show the version");
+				printf("A Network protocol analysis program. 0.01Beta\n(https://github.com//ghost461/RebuildNetObject)\n");
+				printf("-n \n\t Specify the quantity of the packet.\n");
+				printf("-p \n\t Specify the protocol of the packet.\n");
+				printf("-h --help \n\t Show this page. Show the help pages.\n");
+				printf("-v \n\t Show the version\n");
+				printf("(More information and chinese in README.md.)\n");
 				return 0;
 			}
 			else
