@@ -1,7 +1,7 @@
 all = main.o net_ether.o net_ip.o net_arp.o net_icmp.o net_udp.o net_tcp.o net_main.o
 
-test : $(all)
-	clang++ -o test $(all) -l pcap
+analyisTool : $(all)
+	clang++ -o analyisTool $(all) -l pcap
 
 main.o : main.cpp net.h
 	clang++ -c main.cpp 
