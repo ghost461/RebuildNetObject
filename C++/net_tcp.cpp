@@ -78,9 +78,9 @@ void net_tcp::tcp_protocol_packet_callback(u_char *argument, const struct pcap_p
 	//printf("--------   TCP  Protocol (Transport Layer)   --------\n");
 	printf("--------   \033[34mTCP  Protocol (Transport Layer)\033[0m   --------\n");
 	//输出源端口号
-	printf("Source Port: %d\n", source_port);
+	printf("\033[32mSource Port: \033[0m%d\n", source_port);
 	//输出目的端口号
-	printf("Destination Port: %d\n", destination_port);
+	printf("\033[32mDestination Port: \033[0m%d\n", destination_port);
 	//判断上层协议类型、输出序列号
 	switch(destination_port)
 	{
@@ -103,14 +103,14 @@ void net_tcp::tcp_protocol_packet_callback(u_char *argument, const struct pcap_p
 			break;
 	}
 	//输出序列号
-	printf("Sequence Number: %u\n", sequence);
+	printf("\033[32mSequence Number: \033[0m%u\n", sequence);
 	//输出确认号
-	printf("Acknowledge NumberL %u\n", acknowledgement);
+	printf("\033[32mAcknowledge NumberL \033[0m%u\n", acknowledgement);
 	//输出首部长度
-	printf("Header Length: %d\n", header_length);
+	printf("\033[32mHeader Length: \033[0m%d\n", header_length);
 	//输出标记
-	printf("Reserved: %d\n", tcp_protocol->tcp_reserved);
-	printf("Flags:");
+	printf("\033[32mReserved: \033[0m%d\n", tcp_protocol->tcp_reserved);
+	printf("\033[32mFlags:\033[0m");
 	if(flags & 0x08) printf("PSH ");
 	if(flags & 0x10) printf("ACK ");
 	if(flags & 0x02) printf("SYN ");
@@ -119,9 +119,9 @@ void net_tcp::tcp_protocol_packet_callback(u_char *argument, const struct pcap_p
 	if(flags & 0x04) printf("RST ");
 	printf("\n");
 	//输出窗口大小
-	printf("Windows Size: %d\n", windows);
+	printf("\033[32mWindows Size: \033[0m%d\n", windows);
 	//输出校验和
-	printf("Checksum: %d\n", checksum);
+	printf("\033[32mChecksum: \033[0m%d\n", checksum);
 	//输出紧急指针
-	printf("Urgent pointer: %d\n", urgent_pointer);
+	printf("\033[32mUrgent pointer: \033[0m%d\n", urgent_pointer);
 }

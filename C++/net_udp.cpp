@@ -35,9 +35,9 @@ void net_udp::udp_protocol_packet_callback(u_char *argument, const struct pcap_p
 	//printf("--------   UDP  Protocol (Transport Layer)    --------\n");
 	printf("--------   \033[34mUDP  Protocol (Transport Layer)\033[0m    --------\n");
 	//输出源端口号
-	printf("Source Port: %d\n", source_port);
+	printf("\033[32mSource Port: \033[0m%d\n", source_port);
 	//输出目的端口号
-	printf("Destination Port: %d\n", destination_port);
+	printf("\033[32mDestination Port: \033[0m%d\n", destination_port);
 	//根据端口号来判断应用程序协议类型
 	switch(destination_port)
 	{
@@ -57,7 +57,7 @@ void net_udp::udp_protocol_packet_callback(u_char *argument, const struct pcap_p
 		default:
 			break;
 	}
-	printf("Length: %d\n", length);
+	printf("\033[32mLength: \033[0m%d\n", length);
 	//获取校验和
-	printf("Checksum: %d\n", ntohs(udp_protocol->udp_checksum));
+	printf("\033[32mChecksum: \033[0m%d\n", ntohs(udp_protocol->udp_checksum));
 }
