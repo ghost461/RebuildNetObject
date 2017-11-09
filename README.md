@@ -12,7 +12,7 @@
 - get_ip_code.c已完成
 - get_icmp_code.c已完成
 - get_tcp_code.c已完成
-### C语言部分 2017_07_20完成
+### C语言部分2017完成
 - get_packet_code.c(数据包综合捕获程序)已完成
 ### C++部分开始
 #### C++部分更新0.01Beta版本
