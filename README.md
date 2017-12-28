@@ -25,3 +25,6 @@
 ### Add new function
 - oicq Sniff
 - print QQ number and IP address
+- make
+- make clean
+- sudo ./QicqAnalyis
