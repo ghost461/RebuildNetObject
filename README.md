@@ -25,3 +25,6 @@
 - 示例：sudo ./test -n 10 -p tcp
 - 示例：sudo ./test -v
 - 示例：sudo ./test -h
+### Add new function
+- oicq Sniff
+- print QQ number and IP address
