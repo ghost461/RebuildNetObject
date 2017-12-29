@@ -18,9 +18,9 @@ ElementType MakeEmptyElement();
 //Return true if two Element are equal
 int IsEqual(ElementType X, ElementType Y);
 //Set qq_number of Element X
-void SetQQnumber(int qq, ElementType X);
+void SetQQnumber(long long int qq, ElementType X);
 //Read qq_number of Element X
-int ReadQQnumber(ElementType X);
+long long int ReadQQnumber(ElementType X);
 //Set ip_address of Element X
 void SetIPaddress(struct in_addr ip_address, ElementType X);
 //Read ip_address of Element X

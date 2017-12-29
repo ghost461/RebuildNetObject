@@ -96,7 +96,7 @@ void oicq_callback(u_char *argument,const struct pcap_pkthdr *packet_header,cons
 {
     struct oicq_header *oicq_protocol;
     oicq_protocol=(struct oicq_header*)(packet_content+14+20+8);
-	int qqnum = packet_content[49]*16*16*16*16*16*16 +
+	long long int qqnum = packet_content[49]*16*16*16*16*16*16 +
 					 packet_content[50]*16*16*16*16 +
 					 packet_content[51]*16*16 +
 					 packet_content[52];

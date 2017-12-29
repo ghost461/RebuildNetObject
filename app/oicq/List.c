@@ -17,7 +17,7 @@ struct Information
 	//MACµØÖ·
 	u_int8_t ether_host[6];
 	//QQºÅ
-	int qq_number;
+	long long int qq_number;
 };
 
 struct Node
@@ -49,13 +49,13 @@ int IsEqual(ElementType X, ElementType Y)
 }
 
 //Set qq_number of Element X
-void SetQQnumber(int qq, ElementType X)
+void SetQQnumber(long long int qq, ElementType X)
 {
 	X->qq_number = qq;
 }
 
 //Read qq_number of Element X
-int ReadQQnumber(ElementType X)
+long long int ReadQQnumber(ElementType X)
 {
 	return X->qq_number;
 }
@@ -76,7 +76,7 @@ struct in_addr ReadIPaddress(ElementType X)
 void printElement(ElementType X)
 {
 	printf("%s\t", inet_ntoa(ReadIPaddress(X)));
-	printf("%d\n", ReadQQnumber(X));
+	printf("%lld\n", ReadQQnumber(X));
 }
 
 //Make a empty list
