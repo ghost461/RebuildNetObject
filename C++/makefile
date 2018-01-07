@@ -1,7 +1,7 @@
-all = main.o net_ether.o net_ip.o net_arp.o net_icmp.o net_udp.o net_tcp.o net_main.o
+all = main.o net_ether.o net_ip.o net_arp.o net_icmp.o net_udp.o net_tcp.o net_main.o net_app.o
 
 analyisTool : $(all)
-	clang++ -o analyisTool $(all) -l pcap
+	clang++ -o analyisTool $(all) -l pcap -l nids
 
 main.o : main.cpp net.h
 	clang++ -c main.cpp 
@@ -23,6 +23,8 @@ net_udp.o : net_icmp.cpp net.h
 
 net_tcp.o : net_tcp.cpp net.h
 	clang++ -c net_tcp.cpp 
+net_app.o : net_app.cpp net.h
+	clang++ -c net_app.cpp
 net_main.o : net_main.cpp net.h
 	clang++ -c net_main.cpp
 

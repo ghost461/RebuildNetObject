@@ -1,5 +1,6 @@
 #include<arpa/inet.h>
 #include"pcap.h"
+#include"net_app.h"
 #include<string>
 using namespace std;
 

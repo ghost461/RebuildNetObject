@@ -2,6 +2,7 @@
 #include<sstream>
 #include<string>
 #include"net.h"
+#include"nids.h"
 using namespace std;
 int main(int argc, char* argv[])
 {
@@ -13,6 +14,10 @@ int main(int argc, char* argv[])
 		for(int i = 1; i < argc; i++)
 		{
 			string tmp = argv[i];
+			if(tmp == "-A")
+			{
+				return app_main();
+			}
 			if(tmp == "-p")
 			{
 				i++;
@@ -54,14 +59,15 @@ int main(int argc, char* argv[])
 			}
 			else if(tmp == "-v")
 			{
-				printf("A Network protocol analysis program.\n\t version : 0.01Beta\n");
+				printf("A Network protocol analysis program.\n\t version : 0.02Beta\n");
 				return 0;
 			}
 			else if(tmp == "-h" || tmp == "--help")
 			{
-				printf("A Network protocol analysis program. 0.01Beta\n(https://github.com//ghost461/RebuildNetObject)\n");
+				printf("A Network protocol analysis program. 0.02Beta\n(https://github.com//ghost461/RebuildNetObject)\n");
 				printf("-n \n\t Specify the quantity of the packet.\n");
 				printf("-p \n\t Specify the protocol of the packet.\n");
+				printf("-A \n\t Using the application layer protocol methmod.(Beta function)\n");
 				printf("-h --help \n\t Show this page. Show the help pages.\n");
 				printf("-v \n\t Show the version\n");
 				printf("(More information and chinese in README.md.)\n");
