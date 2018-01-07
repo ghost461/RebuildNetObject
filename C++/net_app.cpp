@@ -1203,8 +1203,6 @@ void high_protocol_callback(struct tcp_stream *connection/*, void **arg*/)
     App_number++;
     if(App_number>=App_Pnumber)
     {
-		printf("\033[32mThis is App_number!!! : %d \033[0m\n", App_number);
-		printf("\033[32mThis is App_Pnumber!!! : %d \033[0m\n", App_Pnumber);
         App_number=0;
         return;
     }
